@@ -1,5 +1,5 @@
 Spree::Product.class_eval do
-  validates_format_of :tax_cloud_tic, with: /\A\d{5}\z/, message: Spree.t(:standard_taxcloud_tic)
+  validates_format_of :tax_cloud_tic, with: /\A\d{5}\z/, message: "should be in the standard TaxCloud TIC five-digit form"
 
   # Use the store-default TaxCloud product TIC if none is defined for this product
   def tax_cloud_tic

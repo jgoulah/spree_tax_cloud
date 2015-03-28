@@ -16,7 +16,8 @@ module SpreeTaxCloud
     end
 
     config.to_prepare do
-      Dir.glob(Rails.root + "app/*/spree/**/*_decorator*.rb").each do |c|
+      Dir.glob(File.join(File.dirname(__FILE__), "../../app/*/spree/*_decorator*.rb")) do |c|
+        Rails.logger.info "require_dependency #{c}"
         require_dependency(c)
       end
 
