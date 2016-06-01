@@ -36,9 +36,7 @@ module Spree
       item_address = order.ship_address || order.billing_address
       # We can't calculate tax when we don't have a destination address and
       # If the order is outside our jurisdiction, then return 0
-      #return 0 if item_address.nil? || !calculable.zone.include?(item_address)
-      # XXX temp fix while tax cloud is down, uncomment above line when fixed
-      return 0
+      return 0 if item_address.nil? || !calculable.zone.include?(item_address)
 
       # Cache will expire if the order, any of its line items, or any of its shipments change.
       # When the cache expires, we will need to make another API call to TaxCloud.
