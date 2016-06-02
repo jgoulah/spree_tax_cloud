@@ -16,8 +16,6 @@ Spree::Order.class_eval do
   # an adjustment is not created for 0% rates. However, US orders must be
   # submitted to Tax Cloud even when the rate is 0%.
   def is_taxed_using_tax_cloud?
-    # XXX uncomment this when taxcloud is back
-    return false
     Spree::TaxRate.match(self.tax_zone).any? do |rate|
       rate.calculator_type == "Spree::Calculator::TaxCloudCalculator"
     end
