@@ -1,4 +1,4 @@
-require 'sass/rails'
+require 'sassc/rails'
 require 'spree_api'
 require 'spree_backend'
 require 'spree_core'
